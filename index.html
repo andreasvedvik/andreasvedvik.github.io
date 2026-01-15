@@ -34,6 +34,7 @@
       background-color: var(--bg-dark);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Navigation */
@@ -43,7 +44,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 1.5rem 5%;
+      padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -58,7 +59,7 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 500;
       letter-spacing: 2px;
       color: var(--text);
@@ -67,14 +68,14 @@
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 400;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -90,6 +91,8 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
     }
 
     .mobile-menu span {
@@ -102,6 +105,7 @@
     /* Hero Section */
     .hero {
       height: 100vh;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -130,44 +134,45 @@
       z-index: 1;
       text-align: center;
       max-width: 900px;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
 
     .hero-subtitle {
-      font-size: 0.9rem;
-      letter-spacing: 4px;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
+      font-size: clamp(2.5rem, 10vw, 6rem);
       font-weight: 400;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
       line-height: 1.1;
     }
 
     .hero-description {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-muted);
       max-width: 600px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2rem;
       font-weight: 300;
+      padding: 0 1rem;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 1rem 2.5rem;
-      font-size: 0.85rem;
+      padding: 0.875rem 2rem;
+      font-size: 0.8rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       text-decoration: none;
@@ -199,7 +204,7 @@
 
     .scroll-indicator {
       position: absolute;
-      bottom: 3rem;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -207,7 +212,7 @@
       align-items: center;
       gap: 0.5rem;
       color: var(--text-muted);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
@@ -215,7 +220,7 @@
     .scroll-indicator::after {
       content: '';
       width: 1px;
-      height: 40px;
+      height: 30px;
       background: linear-gradient(to bottom, var(--accent), transparent);
       animation: scroll 2s infinite;
     }
@@ -228,25 +233,25 @@
 
     /* Sections */
     section {
-      padding: 8rem 5%;
+      padding: 6rem 5%;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
 
     .section-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.75rem, 5vw, 3rem);
       font-weight: 400;
     }
 
@@ -258,7 +263,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 4rem;
       max-width: 1200px;
       margin: 0 auto;
       align-items: center;
@@ -270,15 +275,16 @@
 
     .about-image img {
       width: 100%;
-      height: 600px;
+      height: 500px;
       object-fit: cover;
+      object-position: center top;
     }
 
     .about-image::before {
       content: '';
       position: absolute;
-      top: -20px;
-      left: -20px;
+      top: -15px;
+      left: -15px;
       width: 100%;
       height: 100%;
       border: 1px solid var(--accent);
@@ -287,34 +293,35 @@
 
     .about-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
       font-weight: 400;
     }
 
     .about-content p {
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       font-weight: 300;
+      font-size: 0.95rem;
     }
 
     .about-stats {
       display: flex;
-      gap: 3rem;
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
       border-top: 1px solid #333;
     }
 
     .stat h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: var(--accent);
       margin-bottom: 0.25rem;
     }
 
     .stat p {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -366,8 +373,8 @@
     }
 
     .timeline-item {
-      padding-left: 3rem;
-      padding-bottom: 3rem;
+      padding-left: 2rem;
+      padding-bottom: 2.5rem;
       position: relative;
     }
 
@@ -383,7 +390,7 @@
     }
 
     .timeline-year {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--accent);
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
@@ -391,14 +398,14 @@
 
     .timeline-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
     }
 
     .timeline-desc {
       color: var(--text-muted);
       font-weight: 300;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     /* Portfolio Section */
@@ -409,7 +416,7 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -418,7 +425,7 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      aspect-ratio: 4/5;
+      aspect-ratio: 3/4;
     }
 
     .portfolio-item img {
@@ -438,7 +445,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 2rem;
+      padding: 1.5rem;
       background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
       transform: translateY(100%);
       transition: transform 0.4s ease;
@@ -450,13 +457,13 @@
 
     .portfolio-overlay h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
     }
 
     .portfolio-overlay p {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     /* Gallery Section */
@@ -502,28 +509,28 @@
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 4rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .contact-info h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       font-weight: 400;
     }
 
     .contact-info p {
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       font-weight: 300;
     }
 
     .contact-details {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .contact-item {
@@ -533,15 +540,17 @@
     }
 
     .contact-item svg {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       stroke: var(--accent);
+      flex-shrink: 0;
     }
 
-    .contact-item a {
+    .contact-item a, .contact-item span {
       color: var(--text);
       text-decoration: none;
       transition: color 0.3s;
+      font-size: 0.95rem;
     }
 
     .contact-item a:hover {
@@ -550,13 +559,13 @@
 
     .social-links {
       display: flex;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
     .social-links a {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       border: 1px solid #333;
       display: flex;
       align-items: center;
@@ -574,8 +583,8 @@
     }
 
     .social-links svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       stroke: var(--text);
       transition: stroke 0.3s;
     }
@@ -586,47 +595,140 @@
 
     .contact-image img {
       width: 100%;
-      height: 500px;
+      height: 450px;
       object-fit: cover;
     }
 
     /* Footer */
     footer {
       background: var(--secondary);
-      padding: 3rem 5%;
+      padding: 2rem 5%;
       text-align: center;
       border-top: 1px solid #222;
     }
 
     footer p {
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* Responsive */
+    /* Tablet Responsive */
     @media (max-width: 1024px) {
       .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
 
+    /* Mobile Responsive */
     @media (max-width: 768px) {
+      nav {
+        padding: 1rem 4%;
+      }
+
+      .logo {
+        font-size: 1rem;
+      }
+
       .nav-links {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10,10,10,0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
       }
 
       .mobile-menu {
         display: flex;
       }
 
-      .about-grid,
-      .contact-grid {
+      .mobile-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .mobile-menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      section {
+        padding: 4rem 4%;
+      }
+
+      .hero {
+        min-height: 100vh;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.75rem;
+      }
+
+      .scroll-indicator {
+        bottom: 1.5rem;
+        font-size: 0.65rem;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-label {
+        font-size: 0.7rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      /* About Mobile */
+      .about-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
       }
 
       .about-image {
@@ -638,29 +740,139 @@
       }
 
       .about-image img {
-        height: 400px;
+        height: 350px;
+        object-position: center top;
       }
 
+      .about-content h2 {
+        font-size: 1.75rem;
+        text-align: center;
+      }
+
+      .about-content p {
+        font-size: 0.9rem;
+      }
+
+      .about-content .btn {
+        display: block;
+        text-align: center;
+      }
+
+      .about-stats {
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat h3 {
+        font-size: 1.75rem;
+      }
+
+      .stat p {
+        font-size: 0.7rem;
+      }
+
+      /* Timeline Mobile */
+      .timeline-item {
+        padding-left: 1.5rem;
+      }
+
+      .timeline-title {
+        font-size: 1.1rem;
+      }
+
+      .timeline-desc {
+        font-size: 0.85rem;
+      }
+
+      /* Portfolio Mobile */
       .portfolio-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
       }
 
+      .portfolio-item {
+        aspect-ratio: 4/3;
+      }
+
+      .portfolio-overlay {
+        transform: translateY(0);
+        padding: 1rem;
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.1rem;
+      }
+
+      .portfolio-overlay p {
+        font-size: 0.8rem;
+      }
+
+      /* Gallery Mobile */
       .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
       }
 
       .gallery-item:nth-child(1) {
         grid-column: span 2;
         grid-row: span 1;
+        aspect-ratio: 16/9;
       }
 
-      .about-stats {
-        flex-wrap: wrap;
+      /* Contact Mobile */
+      .contact-grid {
+        grid-template-columns: 1fr;
         gap: 2rem;
       }
 
-      section {
-        padding: 5rem 5%;
+      .contact-info h2 {
+        font-size: 1.75rem;
+        text-align: center;
+      }
+
+      .contact-info > p {
+        text-align: center;
+      }
+
+      .contact-item {
+        justify-content: flex-start;
+      }
+
+      .contact-item a, .contact-item span {
+        font-size: 0.9rem;
+        word-break: break-word;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .contact-image {
+        display: none;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 375px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 0.85rem;
+      }
+
+      .about-stats {
+        gap: 1rem;
+      }
+
+      .stat h3 {
+        font-size: 1.5rem;
       }
     }
 
@@ -683,20 +895,21 @@
     }
 
     .lightbox img {
-      max-width: 90%;
+      max-width: 95%;
       max-height: 90%;
       object-fit: contain;
     }
 
     .lightbox-close {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: 1rem;
+      right: 1rem;
       font-size: 2rem;
       color: var(--text);
       cursor: pointer;
       background: none;
       border: none;
+      padding: 0.5rem;
     }
   </style>
 </head>
@@ -704,15 +917,15 @@
   <!-- Navigation -->
   <nav id="navbar">
     <a href="#" class="logo">ANDREAS VEDVIK</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#showreel">Showreel</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#showreel" onclick="closeMenu()">Showreel</a></li>
+      <li><a href="#education" onclick="closeMenu()">Education</a></li>
+      <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+      <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
-    <div class="mobile-menu" onclick="toggleMenu()">
+    <div class="mobile-menu" id="mobileMenu" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
@@ -725,7 +938,7 @@
       <img src="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif" alt="Andreas Vedvik">
     </div>
     <div class="hero-content">
-      <p class="hero-subtitle">Actor &bull; Norway</p>
+      <p class="hero-subtitle">Actor • Norway</p>
       <h1 class="hero-title">Andreas Vedvik</h1>
       <p class="hero-description">Bringing depth to characters on the fringes of society. Misunderstood, shame-ridden, lonely, or isolated — these are the roles where I thrive.</p>
       <div class="hero-buttons">
@@ -746,7 +959,7 @@
         <h2>About Andreas</h2>
         <p>Andreas Vedvik is a Norwegian actor educated at Westerdals in 2021. He made his debut in Stine Indergård's production NO-WAY, directed by Rudolf Terland Bjørnerem.</p>
         <p>Together with Tyrone Douglas, he staged the trilogy A Working Class Hero, A Middle Class Hero, and The Dreamer over a two-year period. He has also appeared in NRK's Lillestad and Discovery+'s Basic Bitch Season 3.</p>
-        <p>Acting became a passion for him after attending a folk high school in Sunnhordaland, particularly through his role as Helge Ombo in The Man Who Loved Yngve. Andreas admires the Vinge/Müller theater company, is a fan of the film Into the Wild, and has recently developed an interest in electronic organ music.</p>
+        <p>Acting became a passion for him after attending a folk high school in Sunnhordaland, particularly through his role as Helge Ombo in The Man Who Loved Yngve.</p>
         <a href="#" class="btn btn-primary">Download CV</a>
         <div class="about-stats">
           <div class="stat">
@@ -755,7 +968,7 @@
           </div>
           <div class="stat">
             <h3>5+</h3>
-            <p>Years Experience</p>
+            <p>Years</p>
           </div>
           <div class="stat">
             <h3>3</h3>
@@ -786,18 +999,18 @@
     <div class="timeline">
       <div class="timeline-item">
         <p class="timeline-year">2018 — 2021</p>
-        <h3 class="timeline-title">Bachelor in Acting — Kristiania University College</h3>
-        <p class="timeline-desc">Høyskolen Kristiania avdeling Westerdals. Specialized in classical and contemporary acting techniques, screen performance, and character development. Trained in voice, movement, and method acting to enhance emotional authenticity and versatility across theatre, film, and television.</p>
+        <h3 class="timeline-title">Bachelor in Acting — Kristiania</h3>
+        <p class="timeline-desc">Høyskolen Kristiania avdeling Westerdals. Specialized in classical and contemporary acting techniques, screen performance, and character development.</p>
       </div>
       <div class="timeline-item">
         <p class="timeline-year">2016 — 2017</p>
-        <h3 class="timeline-title">Experimental Performance — University of Agder</h3>
-        <p class="timeline-desc">Focused on experimental performance, devised theatre, and interdisciplinary practices. Trained in innovative storytelling, site-specific work, and digital integration in performance. Developed collaborative, research-based projects emphasizing social relevance and artistic experimentation.</p>
+        <h3 class="timeline-title">Experimental Performance — UiA</h3>
+        <p class="timeline-desc">Focused on experimental performance, devised theatre, and interdisciplinary practices at University of Agder.</p>
       </div>
       <div class="timeline-item">
         <p class="timeline-year">2015 — 2016</p>
-        <h3 class="timeline-title">Physical Theater — Sunnhordaland Folkehøgskole</h3>
-        <p class="timeline-desc">Specialized in physical theater, improvisation, and devised performance. Trained in interdisciplinary techniques integrating movement, voice, and text to create original, collaborative work. Participated in professional workshops and stage productions under industry practitioners.</p>
+        <h3 class="timeline-title">Physical Theater — Sunnhordaland</h3>
+        <p class="timeline-desc">Specialized in physical theater, improvisation, and devised performance at Sunnhordaland Folkehøgskole.</p>
       </div>
     </div>
   </section>
@@ -813,14 +1026,14 @@
         <img src="https://static.wixstatic.com/media/55bcfb_514ef7b0fdbd4aa5a692012f7c03b6ec~mv2.jpg" alt="Caligula">
         <div class="portfolio-overlay">
           <h3>Caligula</h3>
-          <p>Det Norske Teatret — Ensemble Cast</p>
+          <p>Det Norske Teatret</p>
         </div>
       </div>
       <div class="portfolio-item">
         <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth">
         <div class="portfolio-overlay">
           <h3>Lady Macbeth</h3>
-          <p>Det Norske Teatret — Farmhand</p>
+          <p>Det Norske Teatret</p>
         </div>
       </div>
       <div class="portfolio-item">
@@ -847,7 +1060,7 @@
       <div class="portfolio-item">
         <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling">
         <div class="portfolio-overlay">
-          <h3>En Bachelorforestilling 2.0: TAP</h3>
+          <h3>Bachelorforestilling 2.0</h3>
           <p>Bachelor Production</p>
         </div>
       </div>
@@ -897,7 +1110,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            <span>Barnålveien 17, 0198 Oslo</span>
+            <span>Oslo, Norway</span>
           </div>
         </div>
         <div class="social-links">
@@ -910,11 +1123,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
-            </svg>
-          </a>
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" />
             </svg>
           </a>
           <a href="https://instagram.com" target="_blank" aria-label="Instagram">
@@ -933,12 +1141,12 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Andreas Vedvik. All rights reserved.</p>
+    <p>© 2024 Andreas Vedvik. All rights reserved.</p>
   </footer>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close">&times;</button>
+    <button class="lightbox-close">×</button>
     <img src="" alt="Gallery Image" id="lightbox-img">
   </div>
 
@@ -955,8 +1163,19 @@
 
     // Mobile menu toggle
     function toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      const navLinks = document.getElementById('navLinks');
+      const mobileMenu = document.getElementById('mobileMenu');
+      navLinks.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    function closeMenu() {
+      const navLinks = document.getElementById('navLinks');
+      const mobileMenu = document.getElementById('mobileMenu');
+      navLinks.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
     }
 
     // Lightbox functions
