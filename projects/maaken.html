@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maken – Andreas Vedvik | Actor Norway</title>
+    <meta name="description" content="Maken - A performance about actors in a culture where external values dominate. Featuring Andreas Vedvik.">
+
+    <link rel="canonical" href="https://andreasvedvik.com/projects/maaken.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Maken – Andreas Vedvik">
+    <meta property="og:description" content="The actors find themselves in a culture where external values dominate, and everyone yearns to be a star.">
+    <meta property="og:image" content="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp">
+    <meta property="og:url" content="https://andreasvedvik.com/projects/maaken.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --text: #333333;
+            --text-light: #666666;
+            --bg: #ffffff;
+            --bg-light: #f8f8f8;
+            --border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-left a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-left a:hover {
+            color: var(--text-light);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .lang-toggle {
+            font-size: 0.85rem;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .lang-toggle::after {
+            content: '';
+            border: solid var(--text);
+            border-width: 0 1px 1px 0;
+            padding: 2px;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        main {
+            padding-top: 100px;
+        }
+
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .project-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-meta {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-meta h3 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .cast-list {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .cast-list strong {
+            font-weight: 500;
+        }
+
+        .project-gallery {
+            padding: 0 5% 100px;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 5% 100px;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-nav a:hover {
+            color: var(--text-light);
+        }
+
+        .project-nav .prev::before {
+            content: '\2190';
+        }
+
+        .project-nav .next::after {
+            content: '\2192';
+        }
+
+        footer {
+            padding: 60px 5%;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            color: var(--primary);
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.6;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-contact {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .footer-contact a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 4%;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .project-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 40px 4%;
+            }
+
+            .project-gallery {
+                padding: 0 4% 60px;
+            }
+
+            .project-nav {
+                padding: 30px 4% 60px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
+
+            .footer-contact {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-left">
+            <a href="../index.html">Home</a>
+        </nav>
+        <div class="nav-right">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../portfolio.html">Portfolio</a></li>
+                <li><a href="../photos.html">Photos</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="lang-toggle">EN</div>
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="project-header">
+            <h1 class="project-title">Maken</h1>
+            <div class="project-description">
+                <p>The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough.</p>
+                <p>This production explores the desperate need for validation that permeates contemporary culture, particularly in the world of performance and art. The characters navigate a landscape where self-worth is measured by external recognition, likes, and approval.</p>
+                <p>Through powerful ensemble work, the performance examines what happens when identity becomes dependent on the gaze of others. It questions whether authentic artistic expression can survive in a world obsessed with fame, success, and constant visibility.</p>
+
+                <div class="project-meta">
+                    <h3>Production Details</h3>
+                    <div class="cast-list">
+                        <p><strong>Cast Member:</strong> Andreas Vedvik</p>
+                        <p><strong>Type:</strong> Ensemble Theatre</p>
+                        <p><strong>Themes:</strong> Identity, Validation, Contemporary Culture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery">
+            <img src="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp" alt="Maken - Production still" loading="lazy">
+        </div>
+
+        <nav class="project-nav">
+            <a href="lady-macbeth.html" class="prev">Previous Project</a>
+            <a href="caligula.html" class="next">Next Project</a>
+        </nav>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-name">ANDREAS VEDVIK</span>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@andreasvedvik" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/andreas.vedvik" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/andreasvedvik/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <p><a href="tel:+4793003732">+47 93 00 37 32</a></p>
+                <p><a href="mailto:andreas.vedvik@gmail.com">andreas.vedvik@gmail.com</a></p>
+                <p>Barnalveien 17, 0198 Oslo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
