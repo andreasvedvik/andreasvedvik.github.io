@@ -154,22 +154,35 @@
             color: var(--primary);
         }
 
+        /* Language Toggle */
         .lang-toggle {
-            font-size: 0.85rem;
-            color: var(--text);
-            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+            font-size: 0.85rem;
         }
 
-        .lang-toggle::after {
-            content: '';
-            border: solid var(--text);
-            border-width: 0 1px 1px 0;
-            padding: 2px;
-            transform: rotate(45deg);
-            margin-top: -2px;
+        .lang-toggle button {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .lang-toggle button:hover {
+            color: var(--primary);
+        }
+
+        .lang-toggle button.active {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .lang-toggle span {
+            color: var(--border);
         }
 
         /* Mobile Menu */
@@ -233,17 +246,7 @@
             width: 100%;
             padding-bottom: 56.25%;
             background: #000;
-            cursor: pointer;
             overflow: hidden;
-        }
-
-        .video-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .video-wrapper iframe {
@@ -252,30 +255,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            color: #fff;
-            z-index: 2;
-        }
-
-        .play-btn svg {
-            width: 60px;
-            height: 60px;
-            fill: #fff;
-        }
-
-        .play-btn span {
-            font-size: 0.9rem;
-            letter-spacing: 1px;
         }
 
         /* Sections */
@@ -606,15 +585,19 @@
     <!-- Header -->
     <header>
         <nav class="nav-left">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-en="Home" data-no="Hjem">Home</a>
         </nav>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="portfolio.html" data-en="Portfolio" data-no="Portefølje">Portfolio</a></li>
+                <li><a href="photos.html" data-en="Photos" data-no="Bilder">Photos</a></li>
+                <li><a href="#contact" data-en="Contact" data-no="Kontakt">Contact</a></li>
             </ul>
-            <div class="lang-toggle">EN</div>
+            <div class="lang-toggle">
+                <button id="langEN" class="active">EN</button>
+                <span>|</span>
+                <button id="langNO">NO</button>
+            </div>
             <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -627,38 +610,34 @@
         <!-- Hero Section -->
         <section class="hero">
             <h1 class="hero-title">Andreas Vedvik</h1>
-            <p class="hero-subtitle">Actor, Norway</p>
+            <p class="hero-subtitle" data-en="Actor, Norway" data-no="Skuespiller, Norge">Actor, Norway</p>
 
             <div class="video-section">
-                <div class="video-wrapper" id="videoWrapper">
-                    <img src="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif" alt="Andreas Vedvik - Norwegian Actor" loading="eager">
-                    <div class="play-btn">
-                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        <span>Play Video</span>
-                    </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Twrj8SlwQIs" title="Andreas Vedvik Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section class="about" id="about">
-            <h2 class="section-title">About Andreas</h2>
-            <p>Andreas Vedvik is a Norwegian actor educated at Westerdals in 2021. He made his debut in Stine Indergård's production NO-WAY, directed by Rudolf Terland Bjørnerem.</p>
-            <p>Together with Tyrone Douglas, he staged the trilogy A Working Class Hero, A Middle Class Hero, and The Dreamer over a two-year period. He has also appeared in NRK's Lillestad and Discovery+'s Basic Bitch Season 3.</p>
-            <p>Acting became a passion for him after attending a folk high school in Sunnhordaland, particularly through his role as Helge Ombo in The Man Who Loved Yngve. Despite the pandemic, he has participated in several short films, workshops, and seminars.</p>
-            <p>Andreas thrives best in challenging roles portraying characters on the margins of society – misunderstood, shame-ridden, lonely, or isolated.</p>
+            <h2 class="section-title" data-en="About Andreas" data-no="Om Andreas">About Andreas</h2>
+            <p data-en="Andreas Vedvik is a Norwegian actor educated at Westerdals in 2021. He made his debut in Stine Indergård's production NO-WAY, directed by Rudolf Terland Bjørnerem." data-no="Andreas Vedvik er en norsk skuespiller utdannet ved Westerdals i 2021. Han debuterte i Stine Indergårds produksjon NO-WAY, regissert av Rudolf Terland Bjørnerem.">Andreas Vedvik is a Norwegian actor educated at Westerdals in 2021. He made his debut in Stine Indergård's production NO-WAY, directed by Rudolf Terland Bjørnerem.</p>
+            <p data-en="Together with Tyrone Douglas, he staged the trilogy A Working Class Hero, A Middle Class Hero, and The Dreamer over a two-year period. He has also appeared in NRK's Lillestad and Discovery+'s Basic Bitch Season 3." data-no="Sammen med Tyrone Douglas satte han opp trilogien A Working Class Hero, A Middle Class Hero og The Dreamer over en toårsperiode. Han har også medvirket i NRKs Lillestad og Discovery+ sin Basic Bitch Sesong 3.">Together with Tyrone Douglas, he staged the trilogy A Working Class Hero, A Middle Class Hero, and The Dreamer over a two-year period. He has also appeared in NRK's Lillestad and Discovery+'s Basic Bitch Season 3.</p>
+            <p data-en="Acting became a passion for him after attending a folk high school in Sunnhordaland, particularly through his role as Helge Ombo in The Man Who Loved Yngve. Despite the pandemic, he has participated in several short films, workshops, and seminars." data-no="Skuespill ble en lidenskap for ham etter å ha gått på folkehøgskole i Sunnhordaland, særlig gjennom rollen som Helge Ombo i Mannen som elsket Yngve. Til tross for pandemien har han deltatt i flere kortfilmer, workshops og seminarer.">Acting became a passion for him after attending a folk high school in Sunnhordaland, particularly through his role as Helge Ombo in The Man Who Loved Yngve. Despite the pandemic, he has participated in several short films, workshops, and seminars.</p>
+            <p data-en="Andreas thrives best in challenging roles portraying characters on the margins of society – misunderstood, shame-ridden, lonely, or isolated." data-no="Andreas trives best i utfordrende roller som skildrer karakterer i samfunnets utkant – misforståtte, skamfulle, ensomme eller isolerte.">Andreas thrives best in challenging roles portraying characters on the margins of society – misunderstood, shame-ridden, lonely, or isolated.</p>
         </section>
 
         <!-- Education Section -->
         <section class="education" id="education">
             <div class="education-content">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title" data-en="Education" data-no="Utdanning">Education</h2>
 
                 <div class="edu-item">
                     <div class="edu-year">2018–2021</div>
                     <div class="edu-details">
                         <p class="edu-school">Høyskolen Kristiania avdeling Westerdals</p>
-                        <p class="edu-desc">Bachelor in Acting (3 years) – Kristiania University College. Specialized in classical and contemporary acting techniques, screen performance, and character development. Trained in voice, movement, and method acting to enhance emotional authenticity and versatility across theatre, film, and television.</p>
+                        <p class="edu-desc" data-en="Bachelor in Acting (3 years) – Kristiania University College. Specialized in classical and contemporary acting techniques, screen performance, and character development. Trained in voice, movement, and method acting to enhance emotional authenticity and versatility across theatre, film, and television." data-no="Bachelor i skuespill (3 år) – Høyskolen Kristiania. Spesialisering i klassiske og moderne skuespillteknikker, kameraarbeid og karakterutvikling. Trening i stemme, bevegelse og metodeskuespill for å styrke emosjonell autentisitet og allsidighet på tvers av teater, film og TV.">Bachelor in Acting (3 years) – Kristiania University College. Specialized in classical and contemporary acting techniques, screen performance, and character development. Trained in voice, movement, and method acting to enhance emotional authenticity and versatility across theatre, film, and television.</p>
                     </div>
                 </div>
 
@@ -666,7 +645,7 @@
                     <div class="edu-year">2016–2017</div>
                     <div class="edu-details">
                         <p class="edu-school">Universitetet i Agder</p>
-                        <p class="edu-desc">Focused on experimental performance, devised theatre, and interdisciplinary practices. Trained in innovative storytelling, site-specific work, and digital integration in performance.</p>
+                        <p class="edu-desc" data-en="Focused on experimental performance, devised theatre, and interdisciplinary practices. Trained in innovative storytelling, site-specific work, and digital integration in performance." data-no="Fokus på eksperimentell forestilling, devised teater og tverrfaglige praksiser. Trening i innovativ historiefortelling, stedsspesifikt arbeid og digital integrasjon i forestillinger.">Focused on experimental performance, devised theatre, and interdisciplinary practices. Trained in innovative storytelling, site-specific work, and digital integration in performance.</p>
                     </div>
                 </div>
 
@@ -674,7 +653,7 @@
                     <div class="edu-year">2015–2016</div>
                     <div class="edu-details">
                         <p class="edu-school">Sunnhordaland Folkehøgskole</p>
-                        <p class="edu-desc">Specialization in physical theatre, improvisation, and devised performance. Developed skills in movement, voice, and text to create original, collaborative work.</p>
+                        <p class="edu-desc" data-en="Specialization in physical theatre, improvisation, and devised performance. Developed skills in movement, voice, and text to create original, collaborative work." data-no="Spesialisering i fysisk teater, improvisasjon og devised forestilling. Utviklet ferdigheter i bevegelse, stemme og tekst for å skape originalt, samarbeidende arbeid.">Specialization in physical theatre, improvisation, and devised performance. Developed skills in movement, voice, and text to create original, collaborative work.</p>
                     </div>
                 </div>
             </div>
@@ -682,54 +661,54 @@
 
         <!-- Portfolio Section -->
         <section class="portfolio" id="portfolio">
-            <h2 class="section-title" style="text-align: center;">Portfolio</h2>
+            <h2 class="section-title" style="text-align: center;" data-en="Portfolio" data-no="Portefølje">Portfolio</h2>
 
             <div class="portfolio-grid">
                 <a href="projects/bachelorforestilling.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling 2.0: TAP" loading="lazy">
                     <h3>En Bachelorforestilling 2.0: TAP</h3>
-                    <p>We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame.</p>
+                    <p data-en="We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame." data-no="Vi følger Andreas Vedvik gjennom en reise der han henter frem minner fra sitt eget liv, som handler om ydmykelse og skam.">We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame.</p>
                 </a>
 
                 <a href="projects/working-class-hero.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_11b3c766d9fd489d9cf3f25e28cc3fc3~mv2.jpg" alt="A Working Class Hero" loading="lazy">
                     <h3>A Working Class Hero</h3>
-                    <p>A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling.</p>
+                    <p data-en="A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling." data-no="En devised teaterforestilling som utforsker arbeiderklasseidentitet og ambisjoner gjennom fysisk teater og historiefortelling.">A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling.</p>
                 </a>
 
                 <a href="projects/middle-class-hero.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_d3485b3b5e634e5094ede05dc6f29ddc~mv2.webp" alt="A Middle Class Hero" loading="lazy">
                     <h3>A Middle Class Hero</h3>
-                    <p>Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content?</p>
+                    <p data-en="Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content?" data-no="Nok en gang har de skapt en teaterforestilling som utforsker middelklasselivet. Hva definerer middelklassen i dag, og er de fornøyde?">Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content?</p>
                 </a>
 
                 <a href="projects/lady-macbeth.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth" loading="lazy">
                     <h3>Lady Macbeth</h3>
-                    <p>Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's production of Lady Macbeth, a powerful and dramatic performance.</p>
+                    <p data-en="Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's production of Lady Macbeth, a powerful and dramatic performance." data-no="Andreas er stolt av å være en del av ensemblet i Det Norske Teatrets produksjon av Lady Macbeth, en kraftfull og dramatisk forestilling.">Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's production of Lady Macbeth, a powerful and dramatic performance.</p>
                 </a>
 
                 <a href="projects/maaken.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp" alt="Måken" loading="lazy">
                     <h3>Måken</h3>
-                    <p>The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation.</p>
+                    <p data-en="The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation." data-no="Skuespillerne befinner seg i en kultur der ytre verdier dominerer, og alle lengter etter å bli en stjerne. Sultne søker de ytre bekreftelse.">The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation.</p>
                 </a>
 
                 <a href="projects/caligula.html" class="portfolio-item">
                     <img src="https://static.wixstatic.com/media/55bcfb_514ef7b0fdbd4aa5a692012f7c03b6ec~mv2.jpg" alt="Caligula" loading="lazy">
                     <h3>Caligula</h3>
-                    <p>A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
+                    <p data-en="A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret." data-no="En kraftfull teatralsk utforskning av makt, galskap og den menneskelige tilstand på Det Norske Teatret.">A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
                 </a>
             </div>
 
             <div style="text-align: center;">
-                <a href="portfolio.html" class="view-all">View All Projects</a>
+                <a href="portfolio.html" class="view-all" data-en="View All Projects" data-no="Se alle prosjekter">View All Projects</a>
             </div>
         </section>
 
         <!-- Photos Section -->
         <section class="photos" id="photos">
-            <h2 class="section-title" style="text-align: center;">Photos</h2>
+            <h2 class="section-title" style="text-align: center;" data-en="Photos" data-no="Bilder">Photos</h2>
 
             <div class="photos-grid">
                 <a href="photos.html">
@@ -750,7 +729,7 @@
             </div>
 
             <div style="text-align: center;">
-                <a href="photos.html" class="view-all">View All Photos</a>
+                <a href="photos.html" class="view-all" data-en="View All Photos" data-no="Se alle bilder">View All Photos</a>
             </div>
         </section>
     </main>
@@ -789,11 +768,42 @@
             navLinks.classList.toggle('active');
         });
 
-        // Video player
-        const videoWrapper = document.getElementById('videoWrapper');
-        videoWrapper.addEventListener('click', function() {
-            this.innerHTML = '<iframe src="https://www.youtube.com/embed/Twrj8SlwQIs?autoplay=1" title="Andreas Vedvik Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        });
+        // Language Toggle
+        const langEN = document.getElementById('langEN');
+        const langNO = document.getElementById('langNO');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            // Update button states
+            if (lang === 'en') {
+                langEN.classList.add('active');
+                langNO.classList.remove('active');
+            } else {
+                langNO.classList.add('active');
+                langEN.classList.remove('active');
+            }
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = lang === 'en' ? el.dataset.en : el.dataset.no;
+                el.textContent = text;
+            });
+
+            // Update page title
+            document.title = lang === 'en'
+                ? 'Andreas Vedvik – Actor, Norway | Film, Theatre & TV'
+                : 'Andreas Vedvik – Skuespiller, Norge | Film, Teater & TV';
+        }
+
+        // Event listeners
+        langEN.addEventListener('click', () => setLanguage('en'));
+        langNO.addEventListener('click', () => setLanguage('no'));
+
+        // Set initial language
+        setLanguage(currentLang);
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
