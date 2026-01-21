@@ -6,6 +6,9 @@
     <title>Photos – Andreas Vedvik | Actor Norway</title>
     <meta name="description" content="Photo gallery of Andreas Vedvik - Norwegian actor. Headshots, production stills, and behind-the-scenes photos.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-style='italic'>A</text></svg>">
+
     <link rel="canonical" href="https://andreasvedvik.com/photos.html">
 
     <meta property="og:type" content="website">
@@ -102,22 +105,35 @@
             color: var(--primary);
         }
 
+        /* Language Toggle */
         .lang-toggle {
-            font-size: 0.85rem;
-            color: var(--text);
-            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+            font-size: 0.85rem;
         }
 
-        .lang-toggle::after {
-            content: '';
-            border: solid var(--text);
-            border-width: 0 1px 1px 0;
-            padding: 2px;
-            transform: rotate(45deg);
-            margin-top: -2px;
+        .lang-toggle button {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .lang-toggle button:hover {
+            color: var(--primary);
+        }
+
+        .lang-toggle button.active {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .lang-toggle span {
+            color: var(--border);
         }
 
         .mobile-menu-btn {
@@ -283,6 +299,28 @@
             height: 24px;
         }
 
+        .footer-center {
+            text-align: center;
+        }
+
+        .availability-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: var(--bg);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .availability-badge:hover {
+            background: var(--text);
+            transform: translateY(-2px);
+        }
+
         .footer-contact {
             text-align: right;
             font-size: 0.9rem;
@@ -375,15 +413,19 @@
 <body>
     <header>
         <nav class="nav-left">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-en="Home" data-no="Hjem">Home</a>
         </nav>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="photos.html" class="active">Photos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portfolio.html" data-en="Portfolio" data-no="Portefølje">Portfolio</a></li>
+                <li><a href="photos.html" class="active" data-en="Photos" data-no="Bilder">Photos</a></li>
+                <li><a href="index.html#contact" data-en="Contact" data-no="Kontakt">Contact</a></li>
             </ul>
-            <div class="lang-toggle">EN</div>
+            <div class="lang-toggle">
+                <button id="langEN" class="active">EN</button>
+                <span>|</span>
+                <button id="langNO">NO</button>
+            </div>
             <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -394,7 +436,7 @@
 
     <main>
         <div class="page-header">
-            <h1 class="page-title">Photos</h1>
+            <h1 class="page-title" data-en="Photos" data-no="Bilder">Photos</h1>
         </div>
 
         <div class="photos-grid">
@@ -456,6 +498,9 @@
                     </a>
                 </div>
             </div>
+            <div class="footer-center">
+                <a href="mailto:andreas.vedvik@gmail.com" class="availability-badge" data-en="Available for Casting" data-no="Tilgjengelig for casting">Available for Casting</a>
+            </div>
             <div class="footer-contact">
                 <p><a href="tel:+4793003732">+47 93 00 37 32</a></p>
                 <p><a href="mailto:andreas.vedvik@gmail.com">andreas.vedvik@gmail.com</a></p>
@@ -471,6 +516,37 @@
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Language Toggle
+        const langEN = document.getElementById('langEN');
+        const langNO = document.getElementById('langNO');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            if (lang === 'en') {
+                langEN.classList.add('active');
+                langNO.classList.remove('active');
+            } else {
+                langNO.classList.add('active');
+                langEN.classList.remove('active');
+            }
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = lang === 'en' ? el.dataset.en : el.dataset.no;
+                el.textContent = text;
+            });
+
+            document.title = lang === 'en'
+                ? 'Photos – Andreas Vedvik | Actor Norway'
+                : 'Bilder – Andreas Vedvik | Skuespiller Norge';
+        }
+
+        langEN.addEventListener('click', () => setLanguage('en'));
+        langNO.addEventListener('click', () => setLanguage('no'));
+        setLanguage(currentLang);
 
         // Lightbox
         const lightbox = document.getElementById('lightbox');

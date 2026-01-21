@@ -6,6 +6,9 @@
     <title>Portfolio – Andreas Vedvik | Actor Norway</title>
     <meta name="description" content="View Andreas Vedvik's acting portfolio including theatre productions, films, and TV appearances. Norwegian actor based in Oslo.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-style='italic'>A</text></svg>">
+
     <link rel="canonical" href="https://andreasvedvik.com/portfolio.html">
 
     <meta property="og:type" content="website">
@@ -103,22 +106,35 @@
             color: var(--primary);
         }
 
+        /* Language Toggle */
         .lang-toggle {
-            font-size: 0.85rem;
-            color: var(--text);
-            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+            font-size: 0.85rem;
         }
 
-        .lang-toggle::after {
-            content: '';
-            border: solid var(--text);
-            border-width: 0 1px 1px 0;
-            padding: 2px;
-            transform: rotate(45deg);
-            margin-top: -2px;
+        .lang-toggle button {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .lang-toggle button:hover {
+            color: var(--primary);
+        }
+
+        .lang-toggle button.active {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .lang-toggle span {
+            color: var(--border);
         }
 
         .mobile-menu-btn {
@@ -166,18 +182,34 @@
         .portfolio-item {
             text-decoration: none;
             color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-img-wrapper {
+            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img-wrapper {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
         .portfolio-item img {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
-            margin-bottom: 1rem;
-            transition: opacity 0.3s;
+            transition: transform 0.5s ease, opacity 0.3s;
         }
 
         .portfolio-item:hover img {
-            opacity: 0.8;
+            transform: scale(1.03);
+            opacity: 0.95;
         }
 
         .portfolio-item h3 {
@@ -243,6 +275,28 @@
         .social-icons svg {
             width: 24px;
             height: 24px;
+        }
+
+        .footer-center {
+            text-align: center;
+        }
+
+        .availability-badge {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: var(--bg);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .availability-badge:hover {
+            background: var(--text);
+            transform: translateY(-2px);
         }
 
         .footer-contact {
@@ -323,15 +377,19 @@
 <body>
     <header>
         <nav class="nav-left">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-en="Home" data-no="Hjem">Home</a>
         </nav>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portfolio.html" class="active" data-en="Portfolio" data-no="Portefølje">Portfolio</a></li>
+                <li><a href="photos.html" data-en="Photos" data-no="Bilder">Photos</a></li>
+                <li><a href="index.html#contact" data-en="Contact" data-no="Kontakt">Contact</a></li>
             </ul>
-            <div class="lang-toggle">EN</div>
+            <div class="lang-toggle">
+                <button id="langEN" class="active">EN</button>
+                <span>|</span>
+                <button id="langNO">NO</button>
+            </div>
             <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -342,56 +400,72 @@
 
     <main>
         <div class="page-header">
-            <h1 class="page-title">Portfolio</h1>
+            <h1 class="page-title" data-en="Portfolio" data-no="Portefølje">Portfolio</h1>
         </div>
 
         <div class="portfolio-grid">
             <a href="projects/bachelorforestilling.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling 2.0: TAP" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling 2.0: TAP" loading="lazy">
+                </div>
                 <h3>En Bachelorforestilling 2.0: TAP</h3>
-                <p>We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside.</p>
+                <p data-en="We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside." data-no="Vi følger Andreas Vedvik gjennom en reise der han henter frem minner fra sitt eget liv, som handler om ydmykelse og skam. Han strøk på bachelorforestillingen, kjæresten har slått opp med ham, og han må flytte tilbake til bygda.">We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside.</p>
             </a>
 
             <a href="projects/working-class-hero.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_11b3c766d9fd489d9cf3f25e28cc3fc3~mv2.jpg" alt="A Working Class Hero" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_11b3c766d9fd489d9cf3f25e28cc3fc3~mv2.jpg" alt="A Working Class Hero" loading="lazy">
+                </div>
                 <h3>A Working Class Hero</h3>
-                <p>A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas.</p>
+                <p data-en="A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas." data-no="En devised teaterforestilling som utforsker arbeiderklasseidentitet og ambisjoner gjennom fysisk teater og historiefortelling. Skapt i samarbeid med Tyrone Douglas.">A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas.</p>
             </a>
 
             <a href="projects/middle-class-hero.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_d3485b3b5e634e5094ede05dc6f29ddc~mv2.webp" alt="A Middle Class Hero" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_d3485b3b5e634e5094ede05dc6f29ddc~mv2.webp" alt="A Middle Class Hero" loading="lazy">
+                </div>
                 <h3>A Middle Class Hero</h3>
-                <p>Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage.</p>
+                <p data-en="Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage." data-no="Nok en gang har de skapt en teaterforestilling som utforsker middelklasselivet. Hva definerer middelklassen i dag, og er de fornøyde? Masterstudentene presenterer syv prosjekter og skisser laget for hovedscenen.">Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage.</p>
             </a>
 
             <a href="projects/lady-macbeth.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth" loading="lazy">
+                </div>
                 <h3>Lady Macbeth</h3>
-                <p>Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance.</p>
+                <p data-en="Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance." data-no="Andreas er stolt av å være en del av ensemblet i Det Norske Teatrets produksjon av Lady Macbeth, en kraftfull og dramatisk forestilling.">Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance.</p>
             </a>
 
             <a href="projects/maaken.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp" alt="Måken" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp" alt="Måken" loading="lazy">
+                </div>
                 <h3>Måken</h3>
-                <p>The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough.</p>
+                <p data-en="The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough." data-no="Skuespillerne befinner seg i en kultur der ytre verdier dominerer, og alle lengter etter å bli en stjerne. Sultne søker de ytre bekreftelse, jaktende på et flyktig øyeblikk av å føle seg god nok.">The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough.</p>
             </a>
 
             <a href="projects/caligula.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_514ef7b0fdbd4aa5a692012f7c03b6ec~mv2.jpg" alt="Caligula" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_514ef7b0fdbd4aa5a692012f7c03b6ec~mv2.jpg" alt="Caligula" loading="lazy">
+                </div>
                 <h3>Caligula</h3>
-                <p>A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
+                <p data-en="A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret." data-no="En kraftfull teatralsk utforskning av makt, galskap og den menneskelige tilstand på Det Norske Teatret.">A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
             </a>
 
             <a href="projects/the-dreamer.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif" alt="The Dreamer" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif" alt="The Dreamer" loading="lazy">
+                </div>
                 <h3>The Dreamer</h3>
-                <p>The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit.</p>
+                <p data-en="The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit." data-no="Den tredje og siste delen av trilogien med Tyrone Douglas, som utforsker drømmer, ambisjoner og den menneskelige ånd.">The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit.</p>
             </a>
 
             <a href="projects/no-way.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_bd942cc6938e4daeab35044d17da8b13~mv2.webp" alt="NO-WAY" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_bd942cc6938e4daeab35044d17da8b13~mv2.webp" alt="NO-WAY" loading="lazy">
+                </div>
                 <h3>NO-WAY</h3>
-                <p>Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career.</p>
+                <p data-en="Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career." data-no="Andreas' debutproduksjon, regissert av Rudolf Terland Bjørnerem i Stine Indergårds produksjon, som markerte starten på hans profesjonelle skuespillerkarriere.">Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career.</p>
             </a>
         </div>
     </main>
@@ -412,6 +486,9 @@
                     </a>
                 </div>
             </div>
+            <div class="footer-center">
+                <a href="mailto:andreas.vedvik@gmail.com" class="availability-badge" data-en="Available for Casting" data-no="Tilgjengelig for casting">Available for Casting</a>
+            </div>
             <div class="footer-contact">
                 <p><a href="tel:+4793003732">+47 93 00 37 32</a></p>
                 <p><a href="mailto:andreas.vedvik@gmail.com">andreas.vedvik@gmail.com</a></p>
@@ -426,6 +503,37 @@
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Language Toggle
+        const langEN = document.getElementById('langEN');
+        const langNO = document.getElementById('langNO');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            if (lang === 'en') {
+                langEN.classList.add('active');
+                langNO.classList.remove('active');
+            } else {
+                langNO.classList.add('active');
+                langEN.classList.remove('active');
+            }
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = lang === 'en' ? el.dataset.en : el.dataset.no;
+                el.textContent = text;
+            });
+
+            document.title = lang === 'en'
+                ? 'Portfolio – Andreas Vedvik | Actor Norway'
+                : 'Portefølje – Andreas Vedvik | Skuespiller Norge';
+        }
+
+        langEN.addEventListener('click', () => setLanguage('en'));
+        langNO.addEventListener('click', () => setLanguage('no'));
+        setLanguage(currentLang);
     </script>
 </body>
 </html>
