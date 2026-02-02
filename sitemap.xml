@@ -1,57 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://andreasvedvik.com/</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/portfolio.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/portfolio.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/photos.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/photos.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/middle-class-hero.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/middle-class-hero.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/working-class-hero.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/working-class-hero.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/bachelorforestilling.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/bachelorforestilling.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/lady-macbeth.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/lady-macbeth.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/maaken.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/maaken.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://andreasvedvik.com/projects/caligula.html</loc>
-        <lastmod>2025-01-21</lastmod>
+        <loc>https://www.andreasvedvik.com/projects/caligula.html</loc>
+        <lastmod>2026-01-21</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.andreasvedvik.com/projects/the-dreamer.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.andreasvedvik.com/projects/no-way.html</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.andreasvedvik.com/CVANDREASVEDVIK.pdf</loc>
+        <lastmod>2026-01-21</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset>
