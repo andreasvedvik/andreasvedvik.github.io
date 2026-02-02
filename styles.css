@@ -1,0 +1,977 @@
+/* ===========================================
+   Andreas Vedvik - Actor Portfolio
+   Shared Stylesheet
+   =========================================== */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #000000;
+    --text: #333333;
+    --text-light: #666666;
+    --bg: #ffffff;
+    --bg-light: #f8f8f8;
+    --border: #e0e0e0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* ===========================================
+   Accessibility - Focus States
+   =========================================== */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link (screen readers) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--bg);
+    padding: 8px 16px;
+    z-index: 10000;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ===========================================
+   Navigation
+   =========================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+}
+
+.nav-left a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-left a:hover {
+    color: var(--text-light);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+/* Language Toggle */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.lang-toggle button {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.3s;
+}
+
+.lang-toggle button:hover {
+    color: var(--primary);
+}
+
+.lang-toggle button.active {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.lang-toggle span {
+    color: var(--border);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.mobile-menu-btn span {
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+/* ===========================================
+   Page Header (Portfolio, Photos pages)
+   =========================================== */
+main {
+    padding-top: 120px;
+}
+
+.page-header {
+    text-align: center;
+    padding: 60px 5% 80px;
+}
+
+.page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--primary);
+}
+
+/* ===========================================
+   Hero Section (Index page)
+   =========================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+    position: relative;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+/* ===========================================
+   Video Section & YouTube Lite Embed
+   =========================================== */
+.video-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* YouTube Lite Embed */
+.youtube-lite {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-color: #000;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.youtube-lite img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.youtube-lite:hover img {
+    opacity: 0.8;
+}
+
+.youtube-lite .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.youtube-lite:hover .play-btn {
+    background: #ff0000;
+}
+
+.youtube-lite .play-btn::after {
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+}
+
+.youtube-lite iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: relative;
+    margin-top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    animation: fadeInUp 1s ease-out 1s both;
+    background: none;
+    border: none;
+}
+
+.scroll-indicator:hover {
+    opacity: 0.6;
+}
+
+.scroll-indicator .arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 1.5px solid var(--text-light);
+    border-bottom: 1.5px solid var(--text-light);
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+    40% { transform: rotate(45deg) translateY(5px); }
+    60% { transform: rotate(45deg) translateY(3px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ===========================================
+   Sections
+   =========================================== */
+section {
+    padding: 100px 5%;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+/* ===========================================
+   About Section
+   =========================================== */
+.about {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about p {
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+/* ===========================================
+   Education Section
+   =========================================== */
+.education {
+    background: var(--bg-light);
+}
+
+.education-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.edu-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.edu-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.edu-year {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.edu-school {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.edu-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* ===========================================
+   Portfolio Grid
+   =========================================== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-img-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img-wrapper {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.3s;
+}
+
+/* Portfolio page uses 4/3 aspect ratio */
+.portfolio-page .portfolio-item img {
+    aspect-ratio: 4/3;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+.portfolio-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-page .portfolio-item h3 {
+    font-size: 1.4rem;
+}
+
+.portfolio-item p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.portfolio-page .portfolio-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    display: block;
+    -webkit-line-clamp: unset;
+}
+
+/* ===========================================
+   Photos Grid
+   =========================================== */
+.photos {
+    background: var(--bg-light);
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photos-grid a,
+.photos-grid .photo-item {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.photos-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.photos-grid a:hover img,
+.photos-grid .photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.photos-grid a:first-child,
+.photos-grid .photo-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.photos-grid a:first-child img,
+.photos-grid .photo-item:first-child img {
+    aspect-ratio: 1;
+}
+
+/* Photos page uses 3 column grid */
+.photos-page .photos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 5% 100px;
+}
+
+/* ===========================================
+   Lightbox
+   =========================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+/* ===========================================
+   Project Detail Page
+   =========================================== */
+.project-hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5% 60px;
+}
+
+.project-hero img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 5% 100px;
+}
+
+.project-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-meta-item {
+    font-size: 0.9rem;
+}
+
+.project-meta-item strong {
+    display: block;
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text);
+}
+
+.project-description p {
+    margin-bottom: 1.5rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+/* ===========================================
+   Footer
+   =========================================== */
+footer {
+    padding: 60px 5%;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+    transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 0.6;
+}
+
+.social-icons svg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.availability-badge {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--primary);
+    color: var(--bg);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.availability-badge:hover {
+    background: var(--text);
+    transform: translateY(-2px);
+}
+
+.footer-contact {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.footer-contact a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin-bottom: 0.3rem;
+}
+
+/* View All Link */
+.view-all {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+.view-all:hover {
+    opacity: 0.6;
+}
+
+/* ===========================================
+   404 Page
+   =========================================== */
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+}
+
+.error-code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(6rem, 20vw, 12rem);
+    font-weight: 400;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.error-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.error-link {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary);
+    color: var(--bg);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.error-link:hover {
+    background: var(--text);
+    transform: translateY(-2px);
+}
+
+/* ===========================================
+   Responsive Design
+   =========================================== */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .photos-page .photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photos-page .photos-grid .photo-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .photos-page .photos-grid .photo-item:first-child img {
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .edu-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 0 4% 60px;
+    }
+
+    .photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photos-grid a:first-child,
+    .photos-grid .photo-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .photos-grid a:first-child img,
+    .photos-grid .photo-item:first-child img {
+        aspect-ratio: 16/9;
+    }
+
+    .page-header {
+        padding: 40px 4% 60px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left {
+        flex-direction: column;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    section {
+        padding: 60px 4%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}

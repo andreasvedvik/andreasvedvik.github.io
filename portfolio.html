@@ -6,12 +6,20 @@
     <title>Portfolio – Andreas Vedvik | Actor Norway</title>
     <meta name="description" content="View Andreas Vedvik's acting portfolio including theatre productions, films, and TV appearances. Norwegian actor based in Oslo.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-style='italic'>A</text></svg>">
+
     <link rel="canonical" href="https://andreasvedvik.com/portfolio.html">
+
+    <!-- Hreflang for multilingual content -->
+    <link rel="alternate" hreflang="en" href="https://andreasvedvik.com/portfolio.html">
+    <link rel="alternate" hreflang="no" href="https://andreasvedvik.com/portfolio.html">
+    <link rel="alternate" hreflang="x-default" href="https://andreasvedvik.com/portfolio.html">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Portfolio – Andreas Vedvik | Actor Norway">
     <meta property="og:description" content="View Andreas Vedvik's acting portfolio including theatre productions, films, and TV appearances.">
-    <meta property="og:image" content="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif">
+    <meta property="og:image" content="https://andreasvedvik.com/images/og-image.jpg">
     <meta property="og:url" content="https://andreasvedvik.com/portfolio.html">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -20,319 +28,35 @@
 
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #000000;
-            --text: #333333;
-            --text-light: #666666;
-            --bg: #ffffff;
-            --bg-light: #f8f8f8;
-            --border: #e0e0e0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-left a {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-left a:hover {
-            color: var(--text-light);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .lang-toggle {
-            font-size: 0.85rem;
-            color: var(--text);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .lang-toggle::after {
-            content: '';
-            border: solid var(--text);
-            border-width: 0 1px 1px 0;
-            padding: 2px;
-            transform: rotate(45deg);
-            margin-top: -2px;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
-
-        main {
-            padding-top: 120px;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 60px 5% 80px;
-        }
-
-        .page-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 400;
-            color: var(--primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5% 100px;
-        }
-
-        .portfolio-item {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            transition: opacity 0.3s;
-        }
-
-        .portfolio-item:hover img {
-            opacity: 0.8;
-        }
-
-        .portfolio-item h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-item p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        footer {
-            padding: 60px 5%;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .footer-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--primary);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            color: var(--primary);
-            transition: opacity 0.3s;
-        }
-
-        .social-icons a:hover {
-            opacity: 0.6;
-        }
-
-        .social-icons svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .footer-contact {
-            text-align: right;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .footer-contact a {
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .footer-contact a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-contact p {
-            margin-bottom: 0.3rem;
-        }
-
-        @media (max-width: 1024px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 4%;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: var(--bg);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                padding: 0 4% 60px;
-            }
-
-            .page-header {
-                padding: 40px 4% 60px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-left {
-                flex-direction: column;
-            }
-
-            .footer-contact {
-                text-align: center;
-            }
-        }
-    </style>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="portfolio-page">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header>
         <nav class="nav-left">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-en="Home" data-no="Hjem">Home</a>
         </nav>
         <div class="nav-right">
             <ul class="nav-links" id="navLinks">
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portfolio.html" class="active" data-en="Portfolio" data-no="Portefølje">Portfolio</a></li>
+                <li><a href="photos.html" data-en="Photos" data-no="Bilder">Photos</a></li>
+                <li><a href="CVANDREASVEDVIK.pdf" target="_blank" data-en="CV" data-no="CV">CV</a></li>
+                <li><a href="index.html#contact" data-en="Contact" data-no="Kontakt">Contact</a></li>
             </ul>
-            <div class="lang-toggle">EN</div>
-            <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <div class="lang-toggle">
+                <button id="langEN" class="active">EN</button>
+                <span>|</span>
+                <button id="langNO">NO</button>
+            </div>
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -340,58 +64,74 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <div class="page-header">
-            <h1 class="page-title">Portfolio</h1>
+            <h1 class="page-title" data-en="Portfolio" data-no="Portefølje">Portfolio</h1>
         </div>
 
         <div class="portfolio-grid">
             <a href="projects/bachelorforestilling.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling 2.0: TAP" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_75960575e4054e58a13e42b6617d7f2f~mv2.jpg" alt="En Bachelorforestilling 2.0: TAP" loading="lazy">
+                </div>
                 <h3>En Bachelorforestilling 2.0: TAP</h3>
-                <p>We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside.</p>
+                <p data-en="We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside." data-no="Vi følger Andreas Vedvik gjennom en reise der han henter frem minner fra sitt eget liv, som handler om ydmykelse og skam. Han strøk på bachelorforestillingen, kjæresten har slått opp med ham, og han må flytte tilbake til bygda.">We follow Andreas Vedvik through a journey where he draws out memories from his own life, which is about humiliation and shame. He failed his bachelor performance, his girlfriend has broken up with him, and he has to move back to the countryside.</p>
             </a>
 
             <a href="projects/working-class-hero.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_11b3c766d9fd489d9cf3f25e28cc3fc3~mv2.jpg" alt="A Working Class Hero" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_11b3c766d9fd489d9cf3f25e28cc3fc3~mv2.jpg" alt="A Working Class Hero" loading="lazy">
+                </div>
                 <h3>A Working Class Hero</h3>
-                <p>A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas.</p>
+                <p data-en="A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas." data-no="En devised teaterforestilling som utforsker arbeiderklasseidentitet og ambisjoner gjennom fysisk teater og historiefortelling. Skapt i samarbeid med Tyrone Douglas.">A devised theatre performance exploring working-class identity and aspirations through physical theatre and storytelling. Created in collaboration with Tyrone Douglas.</p>
             </a>
 
             <a href="projects/middle-class-hero.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_d3485b3b5e634e5094ede05dc6f29ddc~mv2.webp" alt="A Middle Class Hero" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_d3485b3b5e634e5094ede05dc6f29ddc~mv2.webp" alt="A Middle Class Hero" loading="lazy">
+                </div>
                 <h3>A Middle Class Hero</h3>
-                <p>Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage.</p>
+                <p data-en="Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage." data-no="Nok en gang har de skapt en teaterforestilling som utforsker middelklasselivet. Hva definerer middelklassen i dag, og er de fornøyde? Masterstudentene presenterer syv prosjekter og skisser laget for hovedscenen.">Once again, they have devised a theatre performance exploring middle-class life. What defines the middle class today, and are they content? The master's students present seven projects and sketches crafted for the main stage.</p>
             </a>
 
             <a href="projects/lady-macbeth.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://static.wixstatic.com/media/55bcfb_925039c147244503b92b0dec793d869c~mv2.jpg" alt="Lady Macbeth" loading="lazy">
+                </div>
                 <h3>Lady Macbeth</h3>
-                <p>Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance.</p>
+                <p data-en="Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance." data-no="Andreas er stolt av å være en del av ensemblet i Det Norske Teatrets produksjon av Lady Macbeth, en kraftfull og dramatisk forestilling.">Andreas is proud to be part of the ensemble cast in the Norwegian Theatre's (Det Norske Teatret) production of Lady Macbeth, a powerful and dramatic performance.</p>
             </a>
 
             <a href="projects/maaken.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_60b95556f80f44958932adb03f6fd09a~mv2.webp" alt="Måken" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="images/Måken.jpg" alt="Måken" loading="lazy">
+                </div>
                 <h3>Måken</h3>
-                <p>The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough.</p>
+                <p data-en="The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough." data-no="Skuespillerne befinner seg i en kultur der ytre verdier dominerer, og alle lengter etter å bli en stjerne. Sultne søker de ytre bekreftelse, jaktende på et flyktig øyeblikk av å føle seg god nok.">The actors find themselves in a culture where external values dominate, and everyone yearns to be a star. Starving, they seek external affirmation, chasing a fleeting moment of feeling good enough.</p>
             </a>
 
             <a href="projects/caligula.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_514ef7b0fdbd4aa5a692012f7c03b6ec~mv2.jpg" alt="Caligula" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="images/Caligula.jpg" alt="Caligula" loading="lazy">
+                </div>
                 <h3>Caligula</h3>
-                <p>A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
+                <p data-en="A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret." data-no="En kraftfull teatralsk utforskning av makt, galskap og den menneskelige tilstand på Det Norske Teatret.">A powerful theatrical exploration of power, madness, and the human condition at Det Norske Teatret.</p>
             </a>
 
             <a href="projects/the-dreamer.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_39fc8667d1074d70a082f298b0905c81~mv2.avif" alt="The Dreamer" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="images/DSC09654.jpg" alt="The Dreamer" loading="lazy">
+                </div>
                 <h3>The Dreamer</h3>
-                <p>The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit.</p>
+                <p data-en="The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit." data-no="Den tredje og siste delen av trilogien med Tyrone Douglas, som utforsker drømmer, ambisjoner og den menneskelige ånd.">The third and final installment of the trilogy with Tyrone Douglas, exploring dreams, aspirations, and the human spirit.</p>
             </a>
 
             <a href="projects/no-way.html" class="portfolio-item">
-                <img src="https://static.wixstatic.com/media/55bcfb_bd942cc6938e4daeab35044d17da8b13~mv2.webp" alt="NO-WAY" loading="lazy">
+                <div class="portfolio-img-wrapper">
+                    <img src="images/IMG_1455.JPG" alt="NO-WAY" loading="lazy">
+                </div>
                 <h3>NO-WAY</h3>
-                <p>Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career.</p>
+                <p data-en="Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career." data-no="Andreas' debutproduksjon, regissert av Rudolf Terland Bjørnerem i Stine Indergårds produksjon, som markerte starten på hans profesjonelle skuespillerkarriere.">Andreas's debut production, directed by Rudolf Terland Bjørnerem in Stine Indergård's production, marking the beginning of his professional acting career.</p>
             </a>
         </div>
     </main>
@@ -401,31 +141,29 @@
             <div class="footer-left">
                 <span class="footer-name">ANDREAS VEDVIK</span>
                 <div class="social-icons">
-                    <a href="https://www.youtube.com/@andreasvedvik" target="_blank" rel="noopener" aria-label="YouTube">
+                    <a href="https://www.youtube.com/@andreasvedvikactor" target="_blank" rel="noopener" aria-label="YouTube">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
-                    <a href="https://www.facebook.com/andreas.vedvik" target="_blank" rel="noopener" aria-label="Facebook">
+                    <a href="https://www.facebook.com/Andy.I.am.Awesome/" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/andreasvedvik/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <a href="https://www.instagram.com/andypandysugahcandy/" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
                 </div>
             </div>
+            <div class="footer-center">
+                <a href="mailto:andreas.vedvik@gmail.com" class="availability-badge" data-en="Available for Casting" data-no="Tilgjengelig for casting">Available for Casting</a>
+            </div>
             <div class="footer-contact">
                 <p><a href="tel:+4793003732">+47 93 00 37 32</a></p>
                 <p><a href="mailto:andreas.vedvik@gmail.com">andreas.vedvik@gmail.com</a></p>
-                <p>Barnålveien 17, 0198 Oslo</p>
+                <p>Oslo, Norway</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+    <!-- Shared JavaScript -->
+    <script src="main.js"></script>
 </body>
 </html>
